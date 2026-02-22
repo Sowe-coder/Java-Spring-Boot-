@@ -1,0 +1,27 @@
+java-backend-insurance-system/
+├── src/main/java/com/insurance/
+│   ├── InsuranceApplication.java
+│   ├── config/
+│   │   ├── SecurityConfig.java
+│   │   └── LoggingConfig.java
+│   ├── controller/
+│   │   ├── AuthController.java
+│   │   └── UserController.java
+│   ├── model/
+│   │   ├── User.java
+│   │   └── InsurancePolicy.java
+│   ├── repository/
+│   │   ├── UserRepository.java
+│   │   └── InsurancePolicyRepository.java
+│   ├── service/
+│   │   ├── UserService.java
+│   │   └── InsuranceService.java
+│   ├── dto/
+│   │   ├── UserRequestDTO.java
+│   │   ├── UserResponseDTO.java
+│   │   └── LoginRequestDTO.java
+│   └── security/
+│       └── JwtUtil.java
+└── src/main/resources/
+    ├── application.properties
+    └── logback-spring.xml
