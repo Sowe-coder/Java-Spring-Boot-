@@ -53,3 +53,35 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 }
+package com.insurance.controller;
+
+import com.insurance.dto.UserResponseDTO;
+import com.insurance.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/users")
+@RequiredArgsConstructor
+public class UserController {
+    
+    private final UserService userService;
+    
+    @GetMapping("/profile")
+    public ResponseEntity<UserResponseDTO> getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        // You might want to add a method to find by username
+        return ResponseEntity.ok(new UserResponseDTO());
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
+        UserResponseDTO user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+}
+
